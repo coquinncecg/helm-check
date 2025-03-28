@@ -1,0 +1,10 @@
+{{- $dot := .}}
+{{- range $path, $_ := .Files.Glob  "namespaces/**.yaml" }}
+ {{ $tenant := $.Files.Get $path | fromYaml }}
+# app code
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: x1
+{{ end }}
